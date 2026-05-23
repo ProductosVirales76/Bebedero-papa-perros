@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bebedero Portátil para Perros — Viral en TikTok 🐾</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f7f4;
+    --dark: #1a2e1a;
+    --card: #ffffff;
+    --accent: #2d7a3a;
+    --accent2: #4caf50;
+    --soft: #e8f5e9;
+    --muted: #7a9a7a;
+    --text: #1a2e1a;
+    --border: #c8e6c9;
+    --orange: #ff6b35;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .topbar span { color: #4caf50; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #1a2e1a 0%, #2d4a2d 100%);
+    padding: 28px 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🐾';
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.06;
+    right: -20px;
+    top: 10px;
+  }
+
+  .viral-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,107,53,0.2);
+    border: 1px solid rgba(255,107,53,0.5);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #ff8c5a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent2);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: #9dbf9d;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  /* PRODUCT IMAGE */
+  .product-wrap {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .product-img {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .product-placeholder {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #2d4a2d, #3d5a3d);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px dashed #4a6a4a;
+    color: #6a8a6a;
+    font-size: 13px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .product-placeholder .big { font-size: 52px; }
+
+  .discount-tag {
+    position: absolute;
+    top: 10px; right: 30px;
+    background: var(--orange);
+    color: #fff;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transform: rotate(4deg);
+    box-shadow: 0 4px 14px rgba(255,107,53,0.4);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* PROOF BAR */
+  .proof-bar {
+    background: var(--dark);
+    padding: 14px 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .proof-item { text-align: center; }
+  .proof-num { font-size: 20px; font-weight: 900; color: var(--accent2); display: block; }
+  .proof-label { font-size: 9px; color: #6a8a6a; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* SECTION */
+  .section { padding: 24px 20px; border-bottom: 1px solid var(--border); background: var(--card); }
+  .section:nth-child(even) { background: var(--bg); }
+
+  .section-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  /* BENEFITS */
+  .benefit-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .benefit {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--soft);
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid var(--border);
+  }
+
+  .benefit-icon { font-size: 28px; flex-shrink: 0; }
+  .benefit-title { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+  .benefit-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* SPECS */
+  .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .spec {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .spec-icon { font-size: 22px; margin-bottom: 4px; display: block; }
+  .spec-val { font-size: 15px; font-weight: 900; color: var(--accent); display: block; }
+  .spec-label { font-size: 10px; color: var(--muted); }
+
+  /* PRICE */
+  .price-box {
+    background: var(--soft);
+    border: 2px solid var(--accent2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .price-old { font-size: 13px; color: var(--muted); text-decoration: line-through; }
+  .price-now { font-size: 48px; font-weight: 900; color: var(--dark); line-height: 1; margin: 4px 0; }
+  .price-now sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+  .price-save { font-size: 12px; font-weight: 800; color: var(--accent); }
+  .price-ship { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  /* COUNTDOWN */
+  .countdown {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .cd-label { font-size: 11px; color: #9dbf9d; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+  .cd-timer { display: flex; justify-content: center; gap: 8px; align-items: center; }
+
+  .cd-unit { text-align: center; }
+  .cd-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent2);
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: block;
+    min-width: 44px;
+  }
+  .cd-lab { font-size: 9px; color: #6a8a6a; text-transform: uppercase; margin-top: 3px; }
+  .cd-sep { font-size: 24px; color: #4a6a4a; font-weight: 900; padding-bottom: 14px; }
+
+  /* CTA */
+  .cta {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 14px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(45,122,58,0.4);
+    animation: glow 2.5s infinite;
+    border: none;
+    cursor: pointer;
+  }
+
+  @keyframes glow {
+    0%,100% { box-shadow: 0 6px 20px rgba(45,122,58,0.4); }
+    50% { box-shadow: 0 8px 28px rgba(45,122,58,0.65); }
+  }
+
+  .cta-sub {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  /* REVIEWS */
+  .reviews { display: flex; flex-direction: column; gap: 10px; }
+
+  .review {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .rev-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .rev-name { font-size: 13px; font-weight: 800; }
+  .rev-date { font-size: 10px; color: var(--muted); }
+  .stars { color: #f5a623; font-size: 13px; margin-bottom: 6px; }
+  .rev-text { font-size: 13px; color: #4a6a4a; line-height: 1.6; }
+  .rev-photo { font-size: 11px; color: var(--accent); font-weight: 700; margin-top: 6px; }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-size: 13px; font-weight: 800; display: flex; justify-content: space-between; cursor: pointer; gap: 10px; }
+  .faq-toggle { color: var(--accent); font-size: 20px; flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-a { display: none; font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* STICKY */
+  .sticky {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-top: 2px solid var(--border);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .sticky.show { transform: translateY(0); }
+  .sticky-price { flex: 1; }
+  .sticky-price .old { font-size: 11px; color: var(--muted); text-decoration: line-through; }
+  .sticky-price .new { font-size: 22px; font-weight: 900; color: var(--dark); }
+  .sticky-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    color: #4a6a4a;
+    text-align: center;
+    padding: 20px 20px 80px;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .footer a { color: #6a8a6a; }
+
+  /* USE CASE */
+  .use-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .use-case {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .use-case .uc-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  🐾 Envío GRATIS · <span>+5.000 dueños de perros ya lo tienen</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="viral-badge">🔥 Viral en TikTok</div>
+  <h1>El bebedero<br>que tu perro<br><em>necesita.</em></h1>
+  <p class="hero-sub">2 en 1: bebedero + comedero portátil. Acero inoxidable y silicona. Perfecto para viajes y paseos.</p>
+
+  <div class="product-wrap">
+    <!--
+      INSTRUCCIÓN: Descarga una foto del producto de AliExpress
+      y reemplaza este bloque por:
+      <img class="product-img" src="foto-producto.jpg" alt="Bebedero portátil perros">
+    -->
+    <div class="product-placeholder">
+      <span class="big">🐶💧</span>
+      <span>Pon aquí la foto<br>del producto</span>
+    </div>
+    <div class="discount-tag">-45%<br>HOY</div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-num">5.2K</span><span class="proof-label">Vendidos</span></div>
+  <div class="proof-item"><span class="proof-num">4.9★</span><span class="proof-label">Valoración</span></div>
+  <div class="proof-item"><span class="proof-num">285ml</span><span class="proof-label">Capacidad</span></div>
+  <div class="proof-item"><span class="proof-num">98%</span><span class="proof-label">Satisfechos</span></div>
+</div>
+
+<!-- BENEFICIOS -->
+<div class="section">
+  <div class="section-tag">Por qué lo quieren todos</div>
+  <h2>Todo lo que necesita tu perro en un paseo 🐕</h2>
+  <div class="benefit-list">
+    <div class="benefit">
+      <div class="benefit-icon">💧</div>
+      <div>
+        <div class="benefit-title">Bebedero sin derrames</div>
+        <div class="benefit-desc">Diseño antigoteo. El agua solo sale cuando tu perro bebe, sin mancharte ni derramar nada.</div>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🍖</div>
+      <div>
+        <div class="benefit-title">2 en 1: agua y comida</div>
+        <div class="benefit-desc">Lleva agua y snacks en el mismo bote. Un solo objeto para todo el paseo.</div>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🦺</div>
+      <div>
+        <div class="benefit-title">Acero inoxidable + silicona</div>
+        <div class="benefit-desc">Materiales seguros y duraderos. Sin BPA. Fácil de limpiar en el lavavajillas.</div>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🎒</div>
+      <div>
+        <div class="benefit-title">Ultra compacto</div>
+        <div class="benefit-desc">285ml perfectos para cualquier paseo. Cabe en cualquier bolsillo o mochila.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ESPECIFICACIONES -->
+<div class="section">
+  <div class="section-tag">Especificaciones</div>
+  <h2>Todo lo que necesitas saber</h2>
+  <div class="specs">
+    <div class="spec"><span class="spec-icon">💧</span><span class="spec-val">285 ml</span><span class="spec-label">Capacidad</span></div>
+    <div class="spec"><span class="spec-icon">⚖️</span><span class="spec-val">180 g</span><span class="spec-label">Peso ligero</span></div>
+    <div class="spec"><span class="spec-icon">🧼</span><span class="spec-val">Apto</span><span class="spec-label">Lavavajillas</span></div>
+    <div class="spec"><span class="spec-icon">🌡️</span><span class="spec-val">-20/+60°</span><span class="spec-label">Temperatura</span></div>
+  </div>
+</div>
+
+<!-- PARA QUÉ SIRVE -->
+<div class="section">
+  <div class="section-tag">Úsalo donde quieras</div>
+  <h2>Perfecto para cualquier aventura 🌿</h2>
+  <div class="use-cases">
+    <div class="use-case"><span class="uc-icon">🏕️</span>Senderismo</div>
+    <div class="use-case"><span class="uc-icon">🏖️</span>Playa</div>
+    <div class="use-case"><span class="uc-icon">🚗</span>Viajes en coche</div>
+    <div class="use-case"><span class="uc-icon">🌳</span>Parque</div>
+    <div class="use-case"><span class="uc-icon">🏃</span>Running</div>
+    <div class="use-case"><span class="uc-icon">✈️</span>Vacaciones</div>
+  </div>
+</div>
+
+<!-- PRECIO + CTA -->
+<div class="section">
+  <div class="section-tag">Oferta de hoy</div>
+  <h2>Precio especial por tiempo limitado ⏰</h2>
+
+  <div class="countdown">
+    <div class="cd-label">⏰ La oferta termina en</div>
+    <div class="cd-timer">
+      <div class="cd-unit"><span class="cd-num" id="h">03</span><div class="cd-lab">horas</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><span class="cd-num" id="m">24</span><div class="cd-lab">min</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><span class="cd-num" id="s">17</span><div class="cd-lab">seg</div></div>
+    </div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-old">Precio normal: 22,99€</div>
+    <div class="price-now"><sup>€</sup>12,99</div>
+    <div class="price-save">✅ Ahorras 10€ — 45% de descuento</div>
+    <div class="price-ship">🚚 Envío gratuito · Entrega en 15-25 días</div>
+  </div>
+
+  <!-- CAMBIA ESTA URL POR TU LINK DE AFILIADO -->
+  <a href="https://a.aliexpress.com/_EuJIrjC" class="cta" target="_blank" rel="nofollow sponsored">
+    🐾 QUIERO EL MÍO AHORA →
+  </a>
+
+  <div class="cta-sub">
+    <span>🔒 Pago seguro</span>
+    <span>📦 Envío tracked</span>
+    <span>↩️ Devolución garantizada</span>
+  </div>
+</div>
+
+<!-- RESEÑAS -->
+<div class="section">
+  <div class="section-tag">Lo que dicen los dueños</div>
+  <h2>Más de 5.000 perros felices 🐾</h2>
+  <div class="reviews">
+    <div class="review">
+      <div class="rev-head">
+        <div class="rev-name">👩 Laura M.</div>
+        <div class="rev-date">Hace 5 días · Sevilla</div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="rev-text">Mi golden retriever y yo lo usamos cada mañana en el parque. No gotea nada, es fácil de usar con una sola mano y a mi perra le encanta. Vale cada céntimo.</div>
+      <div class="rev-photo">📸 Con foto verificada</div>
+    </div>
+    <div class="review">
+      <div class="rev-head">
+        <div class="rev-name">👨 Marcos T.</div>
+        <div class="rev-date">Hace 2 semanas · Madrid</div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="rev-text">Perfecto para el senderismo. Lo llevo siempre en la mochila. Tardó 20 días en llegar pero merece la espera. Ya pedí uno de regalo para mi hermana.</div>
+    </div>
+    <div class="review">
+      <div class="rev-head">
+        <div class="rev-name">👩 Carmen R.</div>
+        <div class="rev-date">Hace 3 semanas · Valencia</div>
+      </div>
+      <div class="stars">★★★★☆</div>
+      <div class="rev-text">Muy práctico el 2 en 1. Llevo agua por un lado y sus croquetas por el otro. Le quito una estrella porque el compartimento de comida es pequeño, pero para snacks va genial.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="section-tag">Preguntas frecuentes</div>
+  <h2>Resolvemos tus dudas 💬</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda en llegar? <span class="faq-toggle">+</span></div>
+    <div class="faq-a">El envío estándar desde AliExpress tarda entre 15 y 25 días a España. Puedes elegir envío prioritario al hacer el pedido si lo necesitas antes.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">¿Es seguro para mi perro? <span class="faq-toggle">+</span></div>
+    <div class="faq-a">Sí. Fabricado en acero inoxidable alimentario y silicona sin BPA. Los mismos materiales que usan las botellas de agua para humanos.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">¿Funciona con perros grandes? <span class="faq-toggle">+</span></div>
+    <div class="faq-a">El bebedero funciona con cualquier tamaño de perro. Para razas grandes puede que necesites rellenarlo más veces en paseos largos, ya que la capacidad es de 285ml.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">¿Y si no llega o llega roto? <span class="faq-toggle">+</span></div>
+    <div class="faq-a">AliExpress tiene protección al comprador. Si el pedido no llega o llega dañado, te devuelven el dinero sin problemas. Es una plataforma de confianza con más de 200 millones de compradores.</div>
+  </div>
+</div>
+
+<!-- SEGUNDO CTA -->
+<div class="section" style="border-bottom:none">
+  <a href="https://a.aliexpress.com/_EuJIrjC" class="cta" target="_blank" rel="nofollow sponsored">
+    🐾 VER OFERTA EN ALIEXPRESS →
+  </a>
+  <div class="cta-sub" style="margin-top:12px">
+    <span>⭐ 4.9/5 valoración</span>
+    <span>🛡️ Compra protegida</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Este sitio contiene enlaces de afiliado. Si compras a través de nuestros enlaces podemos recibir una comisión sin coste adicional para ti.</p>
+  <br>
+  <a href="#">Política de privacidad</a> · <a href="#">Aviso legal</a> · <a href="#">Contacto</a>
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky" id="sticky">
+  <div class="sticky-price">
+    <div class="old">22,99€</div>
+    <div class="new">12,99€</div>
+  </div>
+  <a href="https://a.aliexpress.com/_EuJIrjC" class="sticky-btn" target="_blank" rel="nofollow sponsored">
+    COMPRAR →
+  </a>
+</div>
+
+<script>
+  /* STICKY */
+  window.addEventListener('scroll', () => {
+    document.getElementById('sticky').classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* FAQ */
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  /* COUNTDOWN */
+  let t = (3 * 3600) + (24 * 60) + 17;
+  setInterval(() => {
+    if (t <= 0) { t = 3600; return; }
+    t--;
+    document.getElementById('h').textContent = String(Math.floor(t / 3600)).padStart(2, '0');
+    document.getElementById('m').textContent = String(Math.floor((t % 3600) / 60)).padStart(2, '0');
+    document.getElementById('s').textContent = String(t % 60).padStart(2, '0');
+  }, 1000);
+</script>
+</body>
+</html>
